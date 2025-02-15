@@ -6,7 +6,7 @@ pr:
 steps:
     - task: Maven@4
       inputs:
-        mavenPomFile: pom.xml
+        mavenPomFile: 'JtProject/pom.xml'
         goals: clean package   
         publishJUnitResults: true
         testResultsFiles: '**/server/src/test/test-*.xml'
