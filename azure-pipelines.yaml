@@ -1,0 +1,12 @@
+---
+pool: default
+trigger: none
+pr:
+    - master
+steps:
+    - task: Maven@4
+      inputs:
+        mavenPomFile: pom.xml
+        goals: clean package   
+        publishJUnitResults: true
+        testResultsFiles: '**/server/src/test/test-*.xml
