@@ -11,3 +11,7 @@ steps:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
       displayName: 'Maven Compile'
+    - task: CopyFiles@2
+      inputs:
+        Contents: '**/JtSpringProject*.jar'
+        TargetFolder: $(Build.ArtifactStagingDirectory)
