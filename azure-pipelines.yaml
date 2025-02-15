@@ -9,4 +9,4 @@ steps:
         mavenPomFile: pom.xml
         goals: clean package   
         publishJUnitResults: true
-        testResultsFiles: '**/server/src/test/test-*.xml
+        testResultsFiles: '**/server/src/test/test-*.xml'
