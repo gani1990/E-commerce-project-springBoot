@@ -15,3 +15,7 @@ steps:
       inputs:
         Contents: '**/JtSpringProject*.jar'
         TargetFolder: $(Build.ArtifactStagingDirectory)
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathToPublish: $(Build.ArtifactStagingDirectory)
+        artifactName: $(Build.Repository.name)
