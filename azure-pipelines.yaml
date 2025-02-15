@@ -7,7 +7,7 @@ steps:
     - task: Maven@4
       inputs:
         mavenPomFile: 'JtProject/pom.xml'
-        goals: clean install   
+        goals: clean package  
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
       displayName: 'Maven Compile'
