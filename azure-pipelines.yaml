@@ -9,4 +9,5 @@ steps:
         mavenPomFile: 'JtProject/pom.xml'
         goals: clean package   
         publishJUnitResults: true
-        testResultsFiles: '**/server/src/test/test-*.xml'
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      displayName: 'Maven Compile'
