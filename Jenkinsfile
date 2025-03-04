@@ -24,5 +24,12 @@ stages{
         sh 'cd JtProject && mvn clean package'
       }
     }
+stage("Test Application"){
+      steps{
+       
+        sh 'cd JtProject && mvn test"
+      }
+}
+  
 }
 }
