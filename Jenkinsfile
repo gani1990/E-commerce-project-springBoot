@@ -39,3 +39,6 @@ stage("Build Application"){
       steps{
         sh "mvn test"
       }
+	  }
+	}
+	}
