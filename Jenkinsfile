@@ -27,7 +27,7 @@ stages{
 stage("Test Application"){
       steps{
        
-        sh 'cd JtProject && mvn test"
+        sh 'cd JtProject && mvn test'
       }
 }
   
