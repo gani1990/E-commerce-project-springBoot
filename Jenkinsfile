@@ -5,6 +5,10 @@ pipeline {
        maven 'Maven3'
   }
 
+  environment {
+        SONAR_TOKEN = credentials('jenkins-sonarqube-token')  // Reference Jenkins credential
+    }
+
 stages{
     stage("Cleanup Workspace"){
     steps{
@@ -35,7 +39,13 @@ stage("Test Application"){
       steps{
         script{
           withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token'){
-         sh "mvn sonar:sonar"
+       sh '''
+              mvn clean verify sonar:sonar \
+              -Dsonar.organization=gani1990 \
+              -Dsonar.projectKey=gani1990_e-commerce-ms \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.login=$SONAR_TOKEN
+       '''
           }
       }
     }                         
