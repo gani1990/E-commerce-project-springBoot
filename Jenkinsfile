@@ -21,15 +21,8 @@ stages{
 
  stage("Build Application"){
       steps{
-        sh "cd JtProject"
-        sh "mvn clean package"
+        sh 'cd /JtProject && mvn clean package'
       }
     }
- stage("Test Application"){
-      steps{
-        sh "cd JtProject"
-        sh "mvn test"
-      }
-}
 }
 }
