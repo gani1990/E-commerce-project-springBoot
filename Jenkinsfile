@@ -43,7 +43,8 @@ stage("Test Application"){
               -Dsonar.organization=gani1990 \
               -Dsonar.projectKey=gani1990_e-commerce-ms \
               -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.login=$SONAR_TOKEN
+              -Dsonar.login=$SONAR_TOKEN \
+              mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=gani1990_e-commerce-ms
        '''
           }
       
