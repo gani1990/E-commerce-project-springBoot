@@ -21,7 +21,7 @@ stages{
 
  stage("Build Application"){
       steps{
-        sh 'cd /JtProject && mvn clean package'
+        sh 'cd JtProject && mvn clean package'
       }
     }
 }
