@@ -37,8 +37,6 @@ stage("Test Application"){
 
   stage("SonarQube Analysis"){
       steps{
-        script{
-          withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token'){
        sh '''
               mvn clean verify sonar:sonar \
               -Dsonar.organization=gani1990 \
@@ -47,9 +45,8 @@ stage("Test Application"){
               -Dsonar.login=$SONAR_TOKEN
        '''
           }
-      }
+      
     }                         
-  }  
   
 }
 }
