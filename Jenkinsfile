@@ -40,8 +40,8 @@ stage("Test Application"){
        sh '''
               cd JtProject \
               mvn clean verify sonar:sonar \
-              -Dsonar.branch.name=master
-              -Dsonar.qualitygate.wait=true
+              -Dsonar.branch.name=master \
+              -Dsonar.qualitygate.wait=true \
               -Dsonar.organization=gani1990 \
               -Dsonar.projectKey=gani1990_e-commerce-ms \
               -Dsonar.host.url=https://sonarcloud.io \
