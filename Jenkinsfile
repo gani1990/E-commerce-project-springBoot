@@ -47,9 +47,14 @@ stage("Test Application"){
               -Dsonar.organization=gani1990 \
               -Dsonar.projectKey=gani1990_e-commerce-ms \
               -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.login=$SONAR_TOKEN 
+              -Dsonar.login=$SONAR_TOKEN \
               -Dsonar.branch.name=master \
-              -Dsonar.sources=.
+              -Dsonar.java.binaries=target/classes \
+              -Dsonar.sonar.java.binaries=target/classes \
+              -Dsonar.sources=src/main/java \
+              -Dsonar.tests=src/test/java \
+              -Dsonar.junit.reportPaths=target/surefire-reports \
+              
        '''
           }
         }
