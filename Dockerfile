@@ -1,3 +1,6 @@
-FROM tomcat:latest
-RUN cp -R  /usr/local/tomcat/webapps.dist/*  /usr/local/tomcat/webapps
-COPY /webapp/target/*.war /usr/local/tomcat/webapps
+FROM eclipse-temurin:17-alpine
+RUN cp -R ~/workspace/E-commerce-MS-CI/JtProject/target/JtSpringProject-0.0.1-SNAPSHOT.jar /apps/JtSpringProject-0.0.1-SNAPSHOT.jar
+WORKDIR /apps
+EXPOSE 8084
+# CMD Executes when the container is started
+CMD [ "java", "-jar", "JtSpringProject-0.0.1-SNAPSHOT.jar" ]
