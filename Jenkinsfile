@@ -46,7 +46,7 @@ stage("Test Application"){
       steps{
         script{
           withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token'){
-         sh "mvn sonar:sonar"
+         sh 'cd JtProject && mvn sonar:sonar'
           }
       }
     }                         
