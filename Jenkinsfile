@@ -44,39 +44,13 @@ stage("Test Application"){
 
   stage("SonarQube Analysis"){
       steps{
-
         script{
-          withSonarQubeEnv('SonarCloud'){
-       sh '''
-              cd JtProject \
-              mvn clean verify sonar:sonar \
-              -Dsonar.qualitygate.wait=true \
-              -Dsonar.organization=gani1990 \
-              -Dsonar.projectKey=gani1990_e-commerce-ms \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.login=$SONAR_TOKEN 
-       '''
+          withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token'){
+         sh "mvn sonar:sonar"
           }
-        }
-          }
-      
-    }        
-
-  stage("Build & Push Docker Image") {
-            steps {
-                script {
-                    docker.withRegistry('',DOCKER_PASS) {
-                        docker_image = docker.build "${IMAGE_NAME}"
-                    }
-
-                    docker.withRegistry('',DOCKER_PASS) {
-                        docker_image.push("${IMAGE_TAG}")
-                        docker_image.push('latest')
-                    }
-                }
-          }
-  }
-
-  
+      }
+    }                         
+  }          
+ 
 }
 }
