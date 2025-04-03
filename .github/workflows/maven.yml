@@ -28,7 +28,7 @@ jobs:
     - name: Test with maven
       run: |
           cd JtProject 
-          mvn test 
+          mvn clean verify
     - name: Analyze with SonarCloud
         # You can pin the exact commit or the version.
         # uses: SonarSource/sonarcloud-github-action@v2.2.0
@@ -38,13 +38,18 @@ jobs:
       run: |
           cd JtProject
            mvn sonar:sonar \
-            -Dsonar.projectKey=gani1990_e-commerce-ms \
-            -Dsonar.organization=gani1990 \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=$SONAR_TOKEN \
+            -Dsonar.projectKey=gani1990_e-commerce-ms \
+            -Dsonar.organization=gani1990  \
+            -Dsonar.token=$SONAR_TOKEN \
             -Dsonar.java.binaries=target/classes  \
-            -Dsonar.sources=src/main/java \
+            #-Dsonar.sources=src/main/java \
             -Dsonar.tests=src/test/java \
             -Dsonar.junit.reportPaths=target/surefire-reports \
-            #-Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+    - name: SonarCloud Quality Gate Check
+      run: |
+         cd JtProject
+         mvn sonar:sonar -Dsonar.qualitygate.wait=true
+         
       
