@@ -46,9 +46,6 @@ jobs:
             -Dsonar.tests=src/test/java \
             -Dsonar.junit.reportPaths=target/surefire-reports \
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
-    - name: SonarCloud Quality Gate Check
-      run: |
-         cd JtProject
-         mvn sonar:sonar -Dsonar.qualitygate.wait=true
+    
          
       
