@@ -42,8 +42,7 @@ jobs:
             -Dsonar.projectKey=gani1990_e-commerce-ms \
             -Dsonar.organization=gani1990  \
             -Dsonar.token=$SONAR_TOKEN \
-            -Dsonar.java.binaries=target/classes  \
-            #-Dsonar.sources=src/main/java \
+            -Dsonar.java.binaries=target/classes \
             -Dsonar.tests=src/test/java \
             -Dsonar.junit.reportPaths=target/surefire-reports \
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
