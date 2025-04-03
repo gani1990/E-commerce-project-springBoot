@@ -32,7 +32,9 @@ jobs:
           cd JtProject 
           mvn clean package
     - name: Test with maven
-      run: mvn test 
+      run: |
+          cd JtProject 
+          mvn test 
     - name: Analyze with SonarCloud
         # You can pin the exact commit or the version.
         # uses: SonarSource/sonarcloud-github-action@v2.2.0
