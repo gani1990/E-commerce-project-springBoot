@@ -78,13 +78,21 @@ stage('Publish to Nexus') {
                 usernameVariable: 'NEXUS_USER',
                 passwordVariable: 'NEXUS_PASS'
             )]) {
-                sh '''
-                mvn clean deploy -DskipTests
-                '''
+                configFileProvider([configFile(
+                    fileId: 'maven-settings',
+                    variable: 'MAVEN_SETTINGS'
+                )]) {
+                    sh '''
+                    mvn clean deploy \
+                    -s $MAVEN_SETTINGS \
+                    -DskipTests
+                    '''
+                }
             }
         }
     }
 }
+
 
 // stage("Build Docker Image") {
 //             steps {
