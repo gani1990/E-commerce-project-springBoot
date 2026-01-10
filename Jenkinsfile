@@ -78,7 +78,7 @@ stage('Publish to Nexus') {
             passwordVariable: 'NEXUS_PASS'
         )]) {
             sh '''
-            mvn deploy \
+            mvn JtProject deploy \
             -DskipTests \
             -Dnexus.username=$NEXUS_USER \
             -Dnexus.password=$NEXUS_PASS
