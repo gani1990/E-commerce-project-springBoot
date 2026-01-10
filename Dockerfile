@@ -1,4 +1,6 @@
-FROM maven:3.9-eclipse-temurin-17 AS build
-RUN /bin/sh
-CMD ["ls", "-al"]
-CMD ["pwd"]
+FROM adoptopenjdk/openjdk11  
+EXPOSE 8080 
+ENV APP_HOME /usr/src/app
+COPY target/*.jar $APP_HOME/app.jar
+WORKDIR $APP_HOME
+CMD ["java", "-jar", "app.jar"]
