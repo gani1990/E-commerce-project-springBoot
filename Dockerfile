@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # Copy jar from Jenkins workspace
-COPY target/*.jar app.jar
+COPY JtProject/target/*.jar app.jar
 
 # Expose application port (change if needed)
 EXPOSE 8080
